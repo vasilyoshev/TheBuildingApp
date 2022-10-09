@@ -1,11 +1,14 @@
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { selectIsLoggedIn } from 'slices';
 import styles from './Home.module.scss';
 
 export const Home = () => {
   const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const navigateToBuildings = () => {
-    navigate('/buildings');
+    if (isLoggedIn) navigate('/buildings');
   };
 
   return (
