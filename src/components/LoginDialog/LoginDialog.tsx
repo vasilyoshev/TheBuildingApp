@@ -38,6 +38,7 @@ export const LoginDialog: FC<LoginDialogProps> = ({ isOpen, close }) => {
           value={usernameInput}
           onChange={(event) => setUsernameInput(event.target.value)}
           error={!usernameInput}
+          autoFocus
         />
       </DialogContent>
       <DialogActions>
