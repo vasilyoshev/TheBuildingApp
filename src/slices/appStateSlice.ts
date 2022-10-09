@@ -28,4 +28,4 @@ export const selectIsLoggedIn = ({ appState }: RootState) =>
   appState.isLoggedIn;
 export const selectUsername = ({ appState }: RootState) => appState.username;
 
-export const { setIsLoggedIn } = appStateSlice.actions;
+export const { setIsLoggedIn, setUsername } = appStateSlice.actions;
