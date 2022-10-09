@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Winsdor",
+        "area": 200,
+        "location": "London",
+        "image": "https://picsum.photos/seed/1/100/100?grayscale&blur=2"
+    },
+    {
+        "id": 2,
+        "name": "Astoria",
+        "area": 300,
+        "location": "Paris",
+        "image": "https://picsum.photos/seed/2/100/100?grayscale&blur=2"
+    },
+    {
+        "id": 3,
+        "name": "Blue Lagoon",
+        "area": 150,
+        "location": "Amsterdam",
+        "image": "https://picsum.photos/seed/8/100/100?grayscale&blur=2"
+    },
+    {
+        "id": 4,
+        "name": "Sofia Estate",
+        "area": 400,
+        "location": "Sofia",
+        "image": "https://picsum.photos/seed/9/100/100?grayscale&blur=2"
+    },
+    {
+        "id": 5,
+        "name": "Varna Palace",
+        "area": 350,
+        "location": "Varna",
+        "image": "https://picsum.photos/seed/16/100/100?grayscale&blur=2"
+    }
+]
