@@ -1,3 +1,9 @@
 .welcomeTypographyRoot {
   flex-grow: 1;
 }
+
+.userInfoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
