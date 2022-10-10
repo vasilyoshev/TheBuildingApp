@@ -8,43 +8,47 @@ import {
   DialogTitle,
   TextField,
 } from '@mui/material';
-import { addBuilding } from 'slices';
-import styles from './AddBuildingDialog.module.scss';
+import { Building } from 'types';
+import { editBuilding } from 'slices';
+import styles from './EditBuildingDialog.module.scss';
 
-interface AddBuildingDialogProps {
+interface EditBuildingDialogProps {
   isOpen: boolean;
   close: () => void;
+  building: Building;
 }
 
-export const AddBuildingDialog: FC<AddBuildingDialogProps> = ({
+// TODO extract common logic from Add and Edit dialogs
+export const EditBuildingDialog: FC<EditBuildingDialogProps> = ({
   isOpen,
   close,
+  building,
 }) => {
   const dispatch = useDispatch();
-  const [id, setId] = useState('');
-  const [name, setName] = useState('');
-  const [area, setArea] = useState('');
-  const [location, setLocation] = useState('');
-  const [image, setImage] = useState('');
+  const [id, setId] = useState(building.id);
+  const [name, setName] = useState(building.name);
+  const [area, setArea] = useState(building.area);
+  const [location, setLocation] = useState(building.location);
+  const [image, setImage] = useState(building.image);
 
-  const handleAddBuildingClick = () => {
+  const handleEditBuildingClick = () => {
     if (!id || !area || name?.length < 3) return;
 
-    dispatch(addBuilding({ id: Number(id), name, area: Number(area), location, image }));
+    dispatch(editBuilding({ id, name, area, location, image }));
     close();
   };
 
   return (
     <Dialog onClose={close} open={isOpen}>
-      <DialogTitle>Add Building</DialogTitle>
+      <DialogTitle>Edit Building</DialogTitle>
       <DialogContent classes={{ root: styles.dialogContentRoot }}>
         <TextField
           label="ID"
           variant="outlined"
           value={id}
-          onChange={(event) => setId(event.target.value)}
+          onChange={(event) => setId(Number(event.target.value))}
           error={!id}
-          autoFocus
+          disabled
         />
         <TextField
           label="Name"
@@ -52,12 +56,13 @@ export const AddBuildingDialog: FC<AddBuildingDialogProps> = ({
           value={name}
           onChange={(event) => setName(event.target.value)}
           error={name?.length < 3}
+          autoFocus
         />
         <TextField
           label="Area"
           variant="outlined"
           value={area}
-          onChange={(event) => setArea(event.target.value)}
+          onChange={(event) => setArea(Number(event.target.value))}
           error={!area}
         />
         <TextField
@@ -75,7 +80,7 @@ export const AddBuildingDialog: FC<AddBuildingDialogProps> = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={close}>Cancel</Button>
-        <Button onClick={handleAddBuildingClick}>Add Building</Button>
+        <Button onClick={handleEditBuildingClick}>Edit Building</Button>
       </DialogActions>
     </Dialog>
   );

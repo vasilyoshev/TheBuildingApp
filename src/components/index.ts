@@ -5,4 +5,6 @@ export * from './BottomNavigationBar';
 export * from './AppRoutes';
 export * from './LoginDialog';
 export * from './AddBuildingDialog';
+export * from './EditBuildingDialog';
+export * from './DeleteBuildingDialog';
 export * from './BuildingsTable';
